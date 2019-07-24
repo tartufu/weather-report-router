@@ -11,3 +11,26 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.weather-row {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+
+.weather-day a{
+ color: black;
+}
+
+.weather-day a:hover {
+	color: green;
+}
+
+.daily-weather {
+	max-width: 960px;
+	margin: 0 auto;
+}
+
+.header {
+	text-align: center;
+}

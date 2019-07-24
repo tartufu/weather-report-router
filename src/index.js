@@ -1,12 +1,33 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import weatherReports from './WeatherData';
+import WeatherDay from './WeatherDay';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import Directory from './Directory';
 
-ReactDOM.render(<App />, document.getElementById('root'));
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+class Weather extends React.Component {
+
+    state = {
+        weather: weatherReports,
+        test: 'test'
+    }
+
+    render() {
+        return(
+            <div>
+              <h1 className="header"> Totally Fake Weather Report with React Router </h1>
+
+              <div className="weather-row">
+                {this.state.weather.map( weather => {
+                    return <WeatherDay weather={weather}/>
+                })}
+              </div>
+            <Directory props={this.state.weather}/>
+            </div>
+        )
+    }
+}
+
+ReactDOM.render(<Weather />, document.getElementById('root'));
